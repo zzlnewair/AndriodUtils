@@ -1,6 +1,6 @@
 
 
-package com.andriodutils.data;
+package com.andriodutils.time;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -141,6 +141,8 @@ public class TimeUtil {
         return simpleDateFormat.format(date);
     }
 
+    
+    
     public static String getCurrentDateTime() {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_TIME_MILL);
@@ -171,13 +173,62 @@ public class TimeUtil {
      */
     public static long getTimeMill(String Time) throws ParseException {
         SimpleDateFormat format =  new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
-
-
         Date date = format.parse(Time);
-
-
         return date.getTime();
     }
 
+    
+    
+    /**
+     * get current time in milliseconds
+     * 
+     * @return
+     */
+    public static long getCurrentTimeInLong() {
+        return System.currentTimeMillis();
+    }
 
+    /**
+     * get current time in milliseconds, format is {@link #DEFAULT_DATE_FORMAT}
+     * 
+     * @return
+     */
+    public static String getCurrentTimeInString() {
+        return getTime(getCurrentTimeInLong());
+    }
+
+    /**
+     * get current time in milliseconds
+     * 
+     * @return
+     */
+    public static String getCurrentTimeInString(SimpleDateFormat dateFormat) {
+        return getTime(getCurrentTimeInLong(), dateFormat);
+    }
+    
+
+    /**
+     * long time to string
+     * 
+     * @param timeInMillis
+     * @param dateFormat
+     * @return
+     */
+    public static String getTime(long timeInMillis, SimpleDateFormat dateFormat) {
+        return dateFormat.format(new Date(timeInMillis));
+    }
+
+    /**
+     * long time to string, format is {@link #DEFAULT_DATE_FORMAT}
+     * 
+     * @param timeInMillis
+     * @return
+     */
+    public static String getTime(long timeInMillis) {
+    	
+    	  SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_TIME_MILL);
+    	  
+        return getTime(timeInMillis, simpleDateFormat);
+    }
+    
 }

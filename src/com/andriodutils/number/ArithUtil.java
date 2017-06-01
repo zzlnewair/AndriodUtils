@@ -1,6 +1,6 @@
 
 
-package com.andriodutils;
+package com.andriodutils.number;
 
 import java.math.BigDecimal;
 

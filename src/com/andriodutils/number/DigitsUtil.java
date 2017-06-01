@@ -1,14 +1,14 @@
 
-package com.andriodutils.data;
+package com.andriodutils.number;
  
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 /**
  * 数据转换工具类
- * @author AllenCoder
+
  * */
-public class DataUtil {
+public class DigitsUtil {
 
     /**
      * The high digits lookup table.
